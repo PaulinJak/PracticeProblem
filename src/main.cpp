@@ -1,44 +1,51 @@
-
-#include <boost/program_options.hpp>
-namespace po = boost::program_options;s
-
 #include <iostream>
+#include <fstream>
 #include <iterator>
+#include <vector>
 using namespace std;
 
-int main(int ac, char* av[])
-{
-    try {
 
-        po::options_description desc("Allowed options");
-        desc.add_options()
-            ("help", "produce help message")
-            ("compression", po::value<double>(), "set compression level")
-        ;
+typedef vector<vector<int> > intMatrix; 
 
-        po::variables_map vm;        
-        po::store(po::parse_command_line(ac, av, desc), vm);
-        po::notify(vm);    
+void readInstance(const char* nom_fichier,int& n, int& m, intMatrix& image ) {
 
-        if (vm.count("help")) {
-            cout << desc << "\n";
-            return 0;
-        }
+  
+  char char1;
+   
+	
+	ifstream fichier(nom_fichier);
+	if(fichier) {
+		//pour n
+		fichier >> n  >> m >> char1;
+		cout <<"n="<< n <<", m=" << m <<"\n";
+        
+		 
+		for(int i=0;i<n;i++) {
 
-        if (vm.count("compression")) {
-            cout << "Compression level was set to " 
-                 << vm["compression"].as<double>() << ".\n";
-        } else {
-            cout << "Compression level was not set.\n";
-        }
-    }
-    catch(exception& e) {
-        cerr << "error: " << e.what() << "\n";
-        return 1;
-    }
-    catch(...) {
-        cerr << "Exception of unknown type!\n";
-    }
-
-    return 0;
+			for(int j=0;j<m;j++) {
+				fichier >> char1;
+				if(char1=='#') image[i][j]=1;
+				else image[i][j]=0;
+				
+			} 
+			fichier >>char1; //lit "\n"
+		}
+	}
+	else cout << "Fichier non trouvé!! \n";
 }
+
+
+int main(int argc, char* argv[])
+{
+   const char*  fileName;
+  if(argc>1)//we passed the filename in arg
+    fileName=argv[1];
+  else fileName = "instances/logo.in";
+  
+  intMatrix image;
+  int n=0,m=0;
+  
+  readInstance(fileName,n,m,image);
+  
+            return 0;
+    }
