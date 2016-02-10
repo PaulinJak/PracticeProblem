@@ -1,2 +1,2 @@
 # PracticeProblem
-#By Paulin, Maude, Alexandre et Jean
+#By Paulin, Maud, Alexandre et Jean
