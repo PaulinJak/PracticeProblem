@@ -31,11 +31,6 @@ class Matrix2D {
         int width()  const {return width_;}
         int height() const {return height_;}
         int size()   const {return vec_.size();}        
-    
-        auto begin()    noexcept {return vec_.begin();}
-        auto begin() const noexcept {return vec_.begin();}  
-        auto end()  noexcept {return vec_.end();}
-        auto end() const noexcept {return vec_.end();}  
 
     private:
         std::vector<T> vec_;
