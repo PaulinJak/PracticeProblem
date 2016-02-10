@@ -5,6 +5,8 @@
 #include <vector>
 #include "objects.hpp"
 #include "fonctions.hpp"
+#include "carre.hpp"
+
 using namespace std;
 
 
@@ -17,7 +19,7 @@ void readInstance(const char* nom_fichier,int& n, int& m, Matrix2D<int>& image )
 	ifstream fichier(nom_fichier);
 	if(fichier) {
 		//pour n
-		fichier >> n  >> m >> char1;
+		fichier >> n  >> m ;
 		cout <<"n="<< n <<", m=" << m <<"\n";
 		
 		image=Matrix2D<int>(n,m);
@@ -30,7 +32,7 @@ void readInstance(const char* nom_fichier,int& n, int& m, Matrix2D<int>& image )
 				else image(i,j)=0;
 				
 			} 
-			fichier >>char1; //lit "\n"
+		         //lit "\n"
 		}
 	}
 	else cout << "Fichier non trouvé!! \n";
@@ -77,7 +79,7 @@ void updateComposanteConnexe( Matrix2D<int>&  image, int& n, int& m, Case const&
 
       f_lignes_point( n, m, i0,j0, image, lignes, lignes_score);
 
-      f_carre(n,m...)
+      fcarre(image, carre, carre_score, i0,j0 ); 
 
 	traiteStatus(i0,j0)=1; //case traitée
       
@@ -135,9 +137,9 @@ int main(int argc, char* argv[])
 
   iter = casesAPeindre.begin();
 
-  for(vector<Case>::iterator iter=casesAPeindre.begin(); iter != casesAPeindre.end();++iter){
-    (*iter).print();} 
-
+  for(int compteur=0; compteur< n*m; compteur++){
+    choix_next_move( n, m,image,  colonnes,  colonnes_score, lignes, lignes_score, carre, carre_score);
+    }
             return 0;
 }
 
