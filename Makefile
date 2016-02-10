@@ -57,11 +57,11 @@ OBJ      := $(CXX_OBJ) #$(C_OBJ)
 
 CCXX     := g++ -c #compile and assemble but do not link
 #CXXFLAGS stores compiling options for C++ 
-CXXFLAGS += -Wall $(CPLEX_CXX_CFLAGS) $(BOOST_FLAG) -g #-DNVERBOSE
+CXXFLAGS += -Wall $(CPLEX_CXX_CFLAGS) $(BOOST_FLAG) -g -std=c++11 #-DNVERBOSE
 LDFLAGS  += $(CPLEX_CXX_LDFLAGS) -g
 
 ifeq ($(UNAME), Darwin)
-CXXFLAGS += -stdlib=libstdc++
+CXXFLAGS += -stdlib=libstdc++ 
 LDFLAGS  += -stdlib=libstdc++
 endif
 
