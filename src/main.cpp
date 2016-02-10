@@ -35,6 +35,25 @@ void readInstance(const char* nom_fichier,int& n, int& m, intMatrix& image ) {
 }
 
 
+class Case{
+
+public:
+  int i;
+  int j;
+}
+
+  vector<Case> aPeindre(int const& n, int const& m, Matrix const& image){
+
+    vector<Case> casesAPeindre();
+
+	for(int i=0;i<n;i++) {
+			for(int j=0;j<m;j++) {
+			  if(image(i,j)==1){case new
+			    casesAPeindre.insert(
+
+  } 
+
+
 int main(int argc, char* argv[])
 {
    const char*  fileName;
@@ -46,6 +65,7 @@ int main(int argc, char* argv[])
   int n=0,m=0;
   
   readInstance(fileName,n,m,image);
+  
   
             return 0;
     }
