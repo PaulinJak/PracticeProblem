@@ -28,6 +28,8 @@ class Matrix2D {
     
         T&  operator()(int i, int j) {return vec_[i*width_+j];}
     
+        T  operator()(int i, int j) const {return vec_[i*width_+j];}
+
         int width()  const {return width_;}
         int height() const {return height_;}
         int size()   const {return vec_.size();}        
