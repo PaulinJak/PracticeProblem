@@ -78,12 +78,15 @@ LINK     := g++
 all : hashcode
 
 
-hashcode: main.o 
-	$(LINK) $(LDDIRS) -o hashcode main.o $(LDFLAGS) -lm $(CXXFLAGS) 
+hashcode: main.o fonctions.o
+	$(LINK) $(LDDIRS) -o hashcode main.o fonctions.o $(LDFLAGS) -lm $(CXXFLAGS) 
 
 
-main.o : src/main.cpp  
+main.o : src/main.cpp   src/fonctions.cpp
 	$(CCXX) $(LDDIRS) src/main.cpp -o main.o  $(LDFLAGS) -lm $(CXXFLAGS) 
+
+fonctions.o : src/fonctions.cpp   
+	$(CCXX) $(LDDIRS) src/fonctions.cpp -o fonctions.o  $(LDFLAGS) -lm $(CXXFLAGS) 
 
 
 clean:
