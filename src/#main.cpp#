@@ -1,0 +1,48 @@
+#include <iostream>
+#include <iterator>
+using namespace std;
+
+
+
+void getData(const char* nom_fichier,IloEnv env,instance_Cplex& instance) {
+
+  int& n(instance.n);
+  int& m(instance.m);
+  DataMatrix& Ha(instance.Ha);
+  DataMatrix& Ca(instance.Ca);
+  DataMatrix& Hp(instance.Hp); 
+  DataMatrix& Cp(instance.Cp);
+
+  char char1;
+	double tmp;
+	
+	ifstream fichier(nom_fichier);
+	if(fichier) {
+		//pour n
+		fichier >> char1 >> char1 >> n >> char1;
+		cout <<"n="<< n<<"\n";
+		//pour m
+		fichier >> char1 >> char1 >> m >>char1;
+		cout <<"m="<< m<<"\n";
+		 
+		//pour Ba, si existe!
+		double Ba=0;
+		fichier >> char1 ;
+		if(char1=='B'){//then Ba est définie, et Bp aussi
+		  fichier >> char1 >> char1>>Ba >>char1;
+		  cout <<"Ba="<< Ba<<"\n";
+		  
+		  double Bp=0;
+		  //pour Bp
+		  fichier >> char1 >> char1 >>char1 >> Bp >>char1;
+		
+		  
+		// Ha
+		fichier >> char1 >> char1 >> char1 >> char1; // lit H a = [       
+		}
+
+int main(int ac, char* av[])
+{
+ 
+            return 0;
+       }
