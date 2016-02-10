@@ -26,7 +26,7 @@ class Matrix2D {
             return *this;
         }   
     
-        T  operator()(int i, int j) const {return vec_[i*width_+j];}
+        T&  operator()(int i, int j) {return vec_[i*width_+j];}
     
         int width()  const {return width_;}
         int height() const {return height_;}
