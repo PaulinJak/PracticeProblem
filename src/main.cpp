@@ -17,13 +17,14 @@ void readInstance(const char* nom_fichier,int& n, int& m, Matrix2D<int>& image )
 		//pour n
 		fichier >> n  >> m >> char1;
 		cout <<"n="<< n <<", m=" << m <<"\n";
-        
-		 
+		
+		image=Matrix2D<int>(n,m);
+		
 		for(int i=0;i<n;i++) {
 
 			for(int j=0;j<m;j++) {
 				fichier >> char1;
-				if(char1=='#') imag(i, j)=1;
+				if(char1=='#') image(i, j)=1;
 				else image(i,j)=0;
 				
 			} 
@@ -32,6 +33,32 @@ void readInstance(const char* nom_fichier,int& n, int& m, Matrix2D<int>& image )
 	}
 	else cout << "Fichier non trouvé!! \n";
 }
+
+
+class Case{
+
+  Case(int i0, int j0):
+    i(i0), j(j0){};
+
+public:
+  int i;
+  int j;
+}
+
+  vector<Case> aPeindre(int const& n, int const& m, Matrix const& image){
+
+    vector<Case> casesAPeindre();
+
+	for(int i=0;i<n;i++) {
+			for(int j=0;j<m;j++) {
+			  if(image(i,j)==1){CaseAPeindre=Case(i,j);
+			                    casesAPeindre.insert(CaseAPeindre);
+			  }
+			}
+	}
+	return casesAPeindre;
+
+  } 
 
 
 int main(int argc, char* argv[])
@@ -45,6 +72,7 @@ int main(int argc, char* argv[])
   int n=0,m=0;
   
   readInstance(fileName,n,m,image);
+  
   
             return 0;
 }
