@@ -26,8 +26,8 @@ void f_colonnes(int n, int m, Matrix2D<int>& image, Matrix2D<int>& colonnes, Mat
     
 void f_colonnes_point(int n, int m, int i0, int j0, Matrix2D<int>& image, Matrix2D<int>& colonnes, Matrix2D<int>& colonnes_score);
     
-void choix_next_move(int n,int m, Matrix2D<int>& image, Matrix2D<int>& colonnes, Matrix2D<int>& colonnes_score, Matrix2D<int>& lignes, Matrix2D<int>& lignes_score, Matrix2D<int>& carre, Matrix2D<int>& carre_score, );
-);
+void choix_next_move(int n,int m, Matrix2D<int>& image, Matrix2D<int>& colonnes, Matrix2D<int>& colonnes_score, Matrix2D<int>& lignes, Matrix2D<int>& lignes_score, Matrix2D<int>& carre, Matrix2D<int>& carre_score );
+
 
 
 
