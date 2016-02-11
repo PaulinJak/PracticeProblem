@@ -130,15 +130,24 @@ int main(int argc, char* argv[])
   f_lignes( n, m,image,  lignes,  lignes_score);
   f_colonnes( n, m,image,  colonnes,  colonnes_score);
   
+  for (int i=0; i<n; i++){
+    for (int j=0; j<m; j++){
+        fcarre(image, carre, carre_score,i,j);
+    }
+  }
   vector<Case> casesAPeindre;
   aPeindre(n,m,image,casesAPeindre);
 
   vector<Case>::iterator iter;
 
   iter = casesAPeindre.begin();
-
+  
+  Case choix(0,0);
   for(int compteur=0; compteur< n*m; compteur++){
-    choix_next_move( n, m,image,  colonnes,  colonnes_score, lignes, lignes_score, carre, carre_score,casesAPeindre);
+
+    choix = choix_next_move( n, m,image,  colonnes,  colonnes_score, lignes, lignes_score, carre, carre_score,casesAPeindre);
+        updateComposanteConnexe( image, n, m, choix,  carre, carre_score, lignes, lignes_score,colonnes,colonnes_score);
+       
     }
             return 0;
 }
