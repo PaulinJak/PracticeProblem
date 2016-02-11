@@ -42,7 +42,7 @@ void readInstance(const char* nom_fichier,int& n, int& m, Matrix2D<int>& image )
 
 
 vector<Case> aPeindre(int const& n, int const& m, Matrix2D<int> const& image, vector<Case>& casesAPeindre){
-
+    casesAPeindre.clear();
 
 	for(int i=0;i<n;i++) {
 			for(int j=0;j<m;j++) {
@@ -151,10 +151,10 @@ int main(int argc, char* argv[])
 
     choix = choix_next_move( n, m,image,  colonnes,  colonnes_score, lignes, lignes_score, carre, carre_score,casesAPeindre);
         updateComposanteConnexe( image, n, m, choix,  carre, carre_score, lignes, lignes_score,colonnes,colonnes_score);
-       
+        cout<<"caseApeindre size "<<casesAPeindre.size()<<endl; 
         compteur_operations++;
     }
-  cout <<compteur_operations;
+  cout<<"Nombre d'opération: " <<compteur_operations;
             return 0;
 }
 
