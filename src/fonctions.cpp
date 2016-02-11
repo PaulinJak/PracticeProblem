@@ -91,7 +91,7 @@ void f_colonnes_point(int n, int m, int i0, int j0, Matrix2D<int>& image, Matrix
 
 
 //
-void choix_next_move(int n,int m, Matrix2D<int>& image, Matrix2D<int>& colonnes, Matrix2D<int>& colonnes_score, Matrix2D<int>& lignes, Matrix2D<int>& lignes_score, Matrix2D<int>& carre, Matrix2D<int>& carre_score, vector<Case> casesAPeindre){
+Case choix_next_move(int n,int m, Matrix2D<int>& image, Matrix2D<int>& colonnes, Matrix2D<int>& colonnes_score, Matrix2D<int>& lignes, Matrix2D<int>& lignes_score, Matrix2D<int>& carre, Matrix2D<int>& carre_score, vector<Case>& casesAPeindre){
     
     
     if (casesAPeindre.empty()){return;}
@@ -100,6 +100,8 @@ void choix_next_move(int n,int m, Matrix2D<int>& image, Matrix2D<int>& colonnes,
     type = 0;
     score = 0;
     taille = 0;
+    i0 = 0;
+    j0 = 0;
     
     for( vector<Case>::iterator it=casesAPeindre.begin() ; it < casesAPeindre.end(); it++) {
         //cout << it->i <<" " << it->j << endl;
@@ -140,6 +142,7 @@ void choix_next_move(int n,int m, Matrix2D<int>& image, Matrix2D<int>& colonnes,
             for (int l= i0-(taille-1)/2 ; l <= i0-(taille-1)/2; l++) {
                 for (int c= j0-(taille-1)/2 ; c <= j0-(taille-1)/2; c++) {
                     image(l,c)=2;
+                    casesAPeindre.erase(std::remove(casesAPeindre.begin(), casesAPeindre.end(), Case(l,c)), casesAPeindre.end());
                 }
             }
             
@@ -168,6 +171,7 @@ void choix_next_move(int n,int m, Matrix2D<int>& image, Matrix2D<int>& colonnes,
             break;
     }
     
+    return Case(i0, j0);
 }
 
 
