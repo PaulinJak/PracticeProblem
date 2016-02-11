@@ -113,9 +113,9 @@ int main(int argc, char* argv[])
    const char*  fileName;
   if(argc>1)//we passed the filename in arg
     fileName=argv[1];
-  else fileName = "instances/right_angle.in";
+  else fileName = "instances/logo.in";
   
-  outputFile=ofstream("fichierResultats.out");
+  
 
   Matrix2D<int> image;
   int n=0,m=0;
@@ -146,7 +146,7 @@ int main(int argc, char* argv[])
   
   Case choix(0,0);
   int compteur_operations=0;
- 
+  ofstream output_file ("ouputFile.out");
   while(not(casesAPeindre.empty()) && (compteur_operations<n*m)){
       
       aPeindre(n,m,image,casesAPeindre);
@@ -157,7 +157,6 @@ int main(int argc, char* argv[])
     }
   cout<<"Nombre d'opération: " <<compteur_operations<<endl;
 
- ofstream output_file("result.out");
   for (int i=0; i<n; i++){
     for (int j=0; j<m; j++){
         if(image(i,j)==2){
