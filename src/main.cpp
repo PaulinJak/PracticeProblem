@@ -140,14 +140,21 @@ int main(int argc, char* argv[])
 
   vector<Case>::iterator iter;
 
-  iter = casesAPeindre.begin();
+  //iter = casesAPeindre.begin();
   
   Case choix(0,0);
-  for(int compteur=0; compteur< n*m; compteur++){
-        choix = choix_next_move( n, m,image,  colonnes,  colonnes_score, lignes, lignes_score, carre, carre_score, casesAPeindre);
+  int compteur_operations=0;
+ 
+  while(not(casesAPeindre.empty()) && (compteur_operations<n*m)){
+
+      aPeindre(n,m,image,casesAPeindre);
+
+    choix = choix_next_move( n, m,image,  colonnes,  colonnes_score, lignes, lignes_score, carre, carre_score,casesAPeindre);
         updateComposanteConnexe( image, n, m, choix,  carre, carre_score, lignes, lignes_score,colonnes,colonnes_score);
-        
+       
+        compteur_operations++;
     }
+  cout <<compteur_operations;
             return 0;
 }
 
