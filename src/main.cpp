@@ -156,6 +156,7 @@ int main(int argc, char* argv[])
   cout<<"Nombre d'opération: " <<compteur_operations<<endl;
 
  ofstream output_file("result.out");
+ output_file<<n<<" "<<m<<"\n";
   for (int i=0; i<n; i++){
     for (int j=0; j<m; j++){
         if(image(i,j)==2){
