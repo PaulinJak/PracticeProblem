@@ -69,9 +69,9 @@ void fcarre(const Matrix2D<int> &image, Matrix2D<int> &carre, Matrix2D<int> &car
             }
         }
         if (!go_on) break;
-        //a droite
+        //a gauche
         for(int k=up+1; k<=down-1; k++ ){
-            switch (image(k,right)){
+            switch (image(k,left)){
                 case 0:
                     go_on=false;
                     break;
