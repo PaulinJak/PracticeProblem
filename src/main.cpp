@@ -42,7 +42,7 @@ void readInstance(const char* nom_fichier,int& n, int& m, Matrix2D<int>& image )
 
 
 vector<Case> aPeindre(int const& n, int const& m, Matrix2D<int> const& image, vector<Case>& casesAPeindre){
-
+    casesAPeindre.clear();
 
 	for(int i=0;i<n;i++) {
 			for(int j=0;j<m;j++) {
@@ -113,7 +113,7 @@ int main(int argc, char* argv[])
    const char*  fileName;
   if(argc>1)//we passed the filename in arg
     fileName=argv[1];
-  else fileName = "instances/logo.in";
+  else fileName = "instances/right_angle.in";
   
   outputFile=ofstream("fichierResultats.out");
 
@@ -145,7 +145,6 @@ int main(int argc, char* argv[])
   //iter = casesAPeindre.begin();
   
   Case choix(0,0);
-
   int compteur_operations=0;
  
   while(not(casesAPeindre.empty()) && (compteur_operations<n*m)){
@@ -154,11 +153,22 @@ int main(int argc, char* argv[])
 
     choix = choix_next_move( n, m,image,  colonnes,  colonnes_score, lignes, lignes_score, carre, carre_score,casesAPeindre);
         updateComposanteConnexe( image, n, m, choix,  carre, carre_score, lignes, lignes_score,colonnes,colonnes_score);
-       
         compteur_operations++;
-
     }
-  cout <<compteur_operations;
+  cout<<"Nombre d'opération: " <<compteur_operations<<endl;
+
+ ofstream output_file("result.out");
+  for (int i=0; i<n; i++){
+    for (int j=0; j<m; j++){
+        if(image(i,j)==2){
+            output_file<<"#";
+        } else{
+            output_file<<".";
+        }
+    }
+    output_file<<"\n";
+  }
+  output_file.close();
             return 0;
 
 }

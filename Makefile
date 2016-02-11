@@ -65,6 +65,7 @@ CXXFLAGS += -stdlib=libstdc++
 LDFLAGS  += -stdlib=libstdc++
 endif
 
+LDFLAGS =
 LDDIRS   += $(CPLEX_CXX_LDDIRS)
 LDDIRS 	+=$(BOOST_CXX_LDDIRS)
 LINK     := g++
