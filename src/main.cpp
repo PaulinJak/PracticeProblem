@@ -138,7 +138,7 @@ int main(int argc, char* argv[])
   iter = casesAPeindre.begin();
 
   for(int compteur=0; compteur< n*m; compteur++){
-    choix_next_move( n, m,image,  colonnes,  colonnes_score, lignes, lignes_score, carre, carre_score);
+    choix_next_move( n, m,image,  colonnes,  colonnes_score, lignes, lignes_score, carre, carre_score,casesAPeindre);
     }
             return 0;
 }
