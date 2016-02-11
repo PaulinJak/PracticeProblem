@@ -94,7 +94,7 @@ void f_colonnes_point(int n, int m, int i0, int j0, Matrix2D<int>& image, Matrix
 Case choix_next_move(int n,int m, Matrix2D<int>& image, Matrix2D<int>& colonnes, Matrix2D<int>& colonnes_score, Matrix2D<int>& lignes, Matrix2D<int>& lignes_score, Matrix2D<int>& carre, Matrix2D<int>& carre_score, vector<Case>& casesAPeindre){
    
     int score, type, taille, i0=0, j0=0;
-    type = 0;
+    type = -1;
     score = 0;
     taille = 0;
     i0 = 0;
@@ -129,8 +129,8 @@ Case choix_next_move(int n,int m, Matrix2D<int>& image, Matrix2D<int>& colonnes,
         }
     }
     
-    cout << i0 << " " << j0 << endl;
-    cout << type << " " << taille << " " << score << endl;
+//    cout << i0 << " " << j0 << endl;
+//    cout << type << " " << taille << " " << score << endl;
     
     switch (type) {
         case 0:
@@ -163,7 +163,8 @@ Case choix_next_move(int n,int m, Matrix2D<int>& image, Matrix2D<int>& colonnes,
             break;
             
         default:
-            cout << " PROBLEME" << endl;
+            // cout << " PROBLEME" << endl;
+            // Ou fin
             break;
     }
     

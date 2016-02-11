@@ -113,7 +113,7 @@ int main(int argc, char* argv[])
    const char*  fileName;
   if(argc>1)//we passed the filename in arg
     fileName=argv[1];
-  else fileName = "instances/logo.in";
+  else fileName = "instances/right_angle.in";
   
   Matrix2D<int> image;
   int n=0,m=0;
@@ -151,10 +151,22 @@ int main(int argc, char* argv[])
 
     choix = choix_next_move( n, m,image,  colonnes,  colonnes_score, lignes, lignes_score, carre, carre_score,casesAPeindre);
         updateComposanteConnexe( image, n, m, choix,  carre, carre_score, lignes, lignes_score,colonnes,colonnes_score);
-        cout<<"caseApeindre size "<<casesAPeindre.size()<<endl; 
         compteur_operations++;
     }
-  cout<<"Nombre d'opération: " <<compteur_operations;
+  cout<<"Nombre d'opération: " <<compteur_operations<<endl;
+
+ ofstream output_file("result.out");
+  for (int i=0; i<n; i++){
+    for (int j=0; j<m; j++){
+        if(image(i,j)==2){
+            output_file<<"#";
+        } else{
+            output_file<<".";
+        }
+    }
+    output_file<<"\n";
+  }
+  output_file.close();
             return 0;
 }
 
