@@ -115,6 +115,8 @@ int main(int argc, char* argv[])
     fileName=argv[1];
   else fileName = "instances/logo.in";
   
+  outputFile=ofstream("fichierResultats.out");
+
   Matrix2D<int> image;
   int n=0,m=0;
   
@@ -147,7 +149,7 @@ int main(int argc, char* argv[])
   int compteur_operations=0;
  
   while(not(casesAPeindre.empty()) && (compteur_operations<n*m)){
-
+      
       aPeindre(n,m,image,casesAPeindre);
 
     choix = choix_next_move( n, m,image,  colonnes,  colonnes_score, lignes, lignes_score, carre, carre_score,casesAPeindre);
@@ -158,5 +160,6 @@ int main(int argc, char* argv[])
     }
   cout <<compteur_operations;
             return 0;
+
 }
 
