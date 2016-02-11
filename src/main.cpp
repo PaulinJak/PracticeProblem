@@ -142,10 +142,10 @@ int main(int argc, char* argv[])
 
   iter = casesAPeindre.begin();
   
-  Case choix;
+  Case choix(0,0);
   for(int compteur=0; compteur< n*m; compteur++){
-        choix = choix_next_move( n, m,image,  colonnes,  colonnes_score, lignes, lignes_score, carre, carre_score);
-        updateComposanteConnexe( image, n, m, choix,  carre, carre_score, lignes, lignes_score,colonnes,colonnes_score)
+        choix = choix_next_move( n, m,image,  colonnes,  colonnes_score, lignes, lignes_score, carre, carre_score, casesAPeindre);
+        updateComposanteConnexe( image, n, m, choix,  carre, carre_score, lignes, lignes_score,colonnes,colonnes_score);
         
     }
             return 0;

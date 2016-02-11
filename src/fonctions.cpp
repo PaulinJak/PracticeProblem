@@ -94,7 +94,7 @@ void f_colonnes_point(int n, int m, int i0, int j0, Matrix2D<int>& image, Matrix
 Case choix_next_move(int n,int m, Matrix2D<int>& image, Matrix2D<int>& colonnes, Matrix2D<int>& colonnes_score, Matrix2D<int>& lignes, Matrix2D<int>& lignes_score, Matrix2D<int>& carre, Matrix2D<int>& carre_score, vector<Case>& casesAPeindre){
     
     
-    if (casesAPeindre.empty()){return;}
+    if (casesAPeindre.empty()){return Case(0,0);}
     
     int score, type, taille, i0, j0;
     type = 0;
@@ -137,12 +137,11 @@ Case choix_next_move(int n,int m, Matrix2D<int>& image, Matrix2D<int>& colonnes,
     
     switch (type) {
         case 0:
-            cout << "PAINT_SQUARE "<< i0 <<" " << j0 <<" " << (taille-1)/2 << endl;
+            cout << "PAINT_SQUARE "<< i0 <<" " << j0 <<" " << taille << endl;
             
-            for (int l= i0-(taille-1)/2 ; l <= i0-(taille-1)/2; l++) {
-                for (int c= j0-(taille-1)/2 ; c <= j0-(taille-1)/2; c++) {
+            for (int l= i0-taille ; l <= i0+taille; l++) {
+                for (int c= j0-taille ; c <= j0+taille; c++) {
                     image(l,c)=2;
-                    casesAPeindre.erase(std::remove(casesAPeindre.begin(), casesAPeindre.end(), Case(l,c)), casesAPeindre.end());
                 }
             }
             
